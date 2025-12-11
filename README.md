@@ -21,4 +21,4 @@ I value down-to-earth collaboration, clean organization, and thoughtful work tha
 
 ## What you'll find within my GitHub account
 
-I've setted up a repository, which serves as generic platform to build up different kind of embedded SW projects in a quick and easy manner. It's structured into different kind of parts, which shall serve as a kit to stack and assemble a whole SW for different kind of MCUs and platforms
+I've setted up a repository, which serves as generic platform to build up different kind of embedded SW projects in a quick and easy manner. It's structured into different kind of parts, which shall serve as a kit to stack and assemble a whole SW for different kind of MCUs and platforms. Please have a look on your own and follow up my [generic SW platform](https://github.com/t0biasm/embedded-project).

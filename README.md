@@ -32,6 +32,11 @@ My embedded software is split into small repositories.
 - [prj-sumobot](https://github.com/t0biasm/prj-sumobot): sumo robot "Black Magic" (ATmega32U4), with an Arduino Leonardo kick-off application
 - [prj-tif2838](https://github.com/t0biasm/prj-tif2838): application for the TI F28P65x evaluation board (C2000)
 
+#### Sumobot "Black Magic"
+![Sumobot "Black Magic" sketch](images/sumobot-blackmagic-mini.jpg)
+
+100 mm overall, 50 mm wide, 6061-T6 aluminum body with CNC-machined blades.
+
 ### How a project is set up
 - The generic repositories are git submodules at the root of the project (`emb-toolchain/`, `emb-platform/`), pinned to a commit. Bazel refers to them by module name, e.g. `@emb_platform//...`.
 - `emb-project.toml` in the project root declares which submodule follows which branch (`track`) and how updates are applied: `auto` (fast-forward after a green CI) or `pr` (a pull request). Submodules that are not listed stay frozen.

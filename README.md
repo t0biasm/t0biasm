@@ -30,6 +30,9 @@ My embedded software is split into small repositories.
 
 **Projects:**
 - [prj-sumobot](https://github.com/t0biasm/prj-sumobot): sumo robot "Black Magic" (ATmega32U4), with an Arduino Leonardo kick-off application
+  ![Sumobot "Black Magic" sketch](images/sumobot-blackmagic-mini.jpg)
+
+  100 mm overall, 50 mm wide, 6061-T6 aluminum body with CNC-machined blades.
 - [prj-tif2838](https://github.com/t0biasm/prj-tif2838): application for the TI F28P65x evaluation board (C2000)
 
 ### How a project is set up

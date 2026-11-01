@@ -21,4 +21,25 @@ I value down-to-earth collaboration, clean organization, and thoughtful work tha
 
 ## What you'll find within my GitHub account
 
-I've setted up a repository, which serves as generic platform to build up different kind of embedded SW projects in a quick and easy manner. It's structured into different kind of parts, which shall serve as a kit to stack and assemble a whole SW for different kind of MCUs and platforms. Please have a look on your own and follow up my [generic SW platform](https://github.com/t0biasm/embedded-project).
+My embedded software is split into small repositories.
+
+**Generic repositories** (shared building blocks, no project code):
+- [emb-ci](https://github.com/t0biasm/emb-ci): reusable CI workflows, the propagation and canary bot
+- [emb-toolchain](https://github.com/t0biasm/emb-toolchain): compilers and Bazel toolchains (AVR8, C2000, host LLVM)
+- [emb-platform](https://github.com/t0biasm/emb-platform): MCU support for AVR8 and C2000, incl. the FreeRTOS port
+
+**Projects:**
+- [prj-sumobot](https://github.com/t0biasm/prj-sumobot): sumo robot "Black Magic" (ATmega32U4), with an Arduino Leonardo kick-off application
+- [prj-tif2838](https://github.com/t0biasm/prj-tif2838): application for the TI F28P65x evaluation board (C2000)
+
+### How a project is set up
+- The generic repositories are git submodules at the root of the project (`emb-toolchain/`, `emb-platform/`), pinned to a commit. Bazel refers to them by module name, e.g. `@emb_platform//...`.
+- `emb-project.toml` in the project root declares which submodule follows which branch (`track`) and how updates are applied: `auto` (fast-forward after a green CI) or `pr` (a pull request). Submodules that are not listed stay frozen.
+- The project's CI is a short workflow that calls the reusable workflow of `emb-ci`, pinned to a tag.
+- To add a project: create `prj-<name>` with the repository topic `emb-project`, add the submodules, `MODULE.bazel` overrides, `emb-project.toml` and the CI workflow, install the bot app and protect `main`.
+
+### How the projects stay generic
+- Generic repositories contain no project code, and projects contain no toolchain or MCU code. Shared changes are made once and used everywhere.
+- A push to a generic repository moves the submodule pointer in each project that follows it, but only after that project's CI is green with the new commit. Otherwise nothing changes and an issue is opened.
+- A pull request in a generic repository first builds the dependent projects with the PR's commit (the canary). A failing project blocks the merge.
+- Every change goes through a pull request, and `main` is protected everywhere.

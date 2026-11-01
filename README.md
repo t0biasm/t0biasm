@@ -21,7 +21,7 @@ I value down-to-earth collaboration, clean organization, and thoughtful work tha
 
 ## What you'll find within my GitHub account
 
-My embedded software is split into small repositories. The former monorepo [embedded-project](https://github.com/t0biasm/embedded-project) is retired.
+My embedded software is split into small repositories.
 
 **Generic repositories** (shared building blocks, no project code):
 - [emb-ci](https://github.com/t0biasm/emb-ci): reusable CI workflows, the propagation and canary bot
